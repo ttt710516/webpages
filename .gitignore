@@ -1,0 +1,6 @@
+# 執行時產生的資料
+data.sqlite3*
+jobs/
+__pycache__/
+*.pyc
+.env

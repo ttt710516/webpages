@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>購買點數</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="/" class="brand">五線譜轉簡譜</a>
+    <a href="/buy.html" aria-current="page">購買點數</a>
+  </nav>
+
+  <header class="site-header">
+    <h1>購買點數</h1>
+    <p>付款完成後取得兌換碼，每下載一份簡譜扣 1 點</p>
+  </header>
+
+  <main class="narrow">
+    <div id="test-banner" class="test-banner" hidden>
+      目前是<strong>綠界測試環境</strong>，不會真的扣款。
+    </div>
+
+    <form id="buy-form" class="card">
+      <h2>1. 選擇方案</h2>
+      <div id="packages" class="options packages"></div>
+
+      <h2>2. 付款方式</h2>
+      <div id="payments" class="options"></div>
+
+      <h2>3. Email <span class="muted small">（選填，付款後寄送兌換碼）</span></h2>
+      <input id="email" type="email" class="text-input" placeholder="you@example.com" maxlength="200">
+
+      <p id="buy-msg" class="form-msg" hidden></p>
+      <button id="buy-btn" class="btn primary block" type="submit">前往綠界付款</button>
+      <p class="muted small center">將前往綠界科技的付款頁面取得轉帳帳號或繳費代碼</p>
+    </form>
+
+    <section class="card">
+      <h2>查詢兌換碼剩餘點數</h2>
+      <form id="balance-form" class="unlock-form">
+        <input id="balance-code" type="text" placeholder="XXXX-XXXX-XXXX"
+               autocomplete="off" spellcheck="false" maxlength="20" required>
+        <button class="btn secondary" type="submit">查詢</button>
+      </form>
+      <p id="balance-msg" class="form-msg" hidden></p>
+    </section>
+
+    <section id="my-orders" class="card" hidden>
+      <h2>這台裝置上的訂單</h2>
+      <ul id="order-list" class="order-list"></ul>
+    </section>
+  </main>
+
+  <script src="buy.js"></script>
+</body>
+</html>

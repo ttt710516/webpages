@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>五線譜轉簡譜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="/" class="brand">五線譜轉簡譜</a>
+    <a href="/buy.html">購買點數</a>
+  </nav>
+
+  <header class="site-header">
+    <h1>五線譜轉簡譜</h1>
+    <p>上傳五線譜，免費預覽，用兌換碼下載完整簡譜</p>
+  </header>
+
+  <main>
+    <section id="upload-section">
+      <label id="dropzone" class="dropzone" tabindex="0">
+        <input id="file-input" type="file"
+               accept=".pdf,.png,.jpg,.jpeg,.musicxml,.xml,.mxl" hidden>
+        <svg class="dz-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"
+                fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="dz-title">把五線譜拖曳到這裡，或<u>點擊選擇檔案</u></span>
+        <span class="dz-hint">支援 PDF、PNG、JPG、MusicXML（.musicxml / .xml / .mxl），上限 20 MB</span>
+      </label>
+
+      <div id="status" class="status" hidden></div>
+    </section>
+
+    <section id="result-section" hidden>
+      <div class="toolbar">
+        <div class="file-info">
+          <span class="label">來源</span> <span id="source-name"></span>
+          <span class="arrow">→</span>
+          <span class="label">簡譜</span> <span id="result-name"></span>
+        </div>
+        <div class="actions">
+          <button id="reset-btn" class="btn secondary" type="button">重新上傳</button>
+        </div>
+      </div>
+
+      <div class="card unlock-card">
+        <div id="unlock-form-wrap">
+          <h2>下載完整簡譜</h2>
+          <p class="muted">預覽有浮水印。輸入兌換碼解鎖無浮水印版本，每份扣 1 點（同一份重複下載不再扣點）。</p>
+          <form id="unlock-form" class="unlock-form">
+            <input id="code-input" type="text" placeholder="XXXX-XXXX-XXXX"
+                   autocomplete="off" spellcheck="false" maxlength="20" required>
+            <button id="unlock-btn" class="btn primary" type="submit">解鎖下載</button>
+          </form>
+          <p id="unlock-msg" class="form-msg" hidden></p>
+          <p class="muted small">還沒有兌換碼？<a href="/buy.html" target="_blank">購買點數</a>（ATM 轉帳／超商繳費）</p>
+        </div>
+        <div id="unlocked-wrap" hidden>
+          <h2>已解鎖</h2>
+          <p class="muted">兌換碼 <code id="used-code"></code> 剩餘 <strong id="credits-left"></strong> 點</p>
+          <a id="download-btn" class="btn primary" href="#" download>下載簡譜</a>
+        </div>
+      </div>
+
+      <div id="preview" class="preview"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

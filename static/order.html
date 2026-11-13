@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>訂單狀態</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="/" class="brand">五線譜轉簡譜</a>
+    <a href="/buy.html">購買點數</a>
+  </nav>
+
+  <header class="site-header">
+    <h1>訂單狀態</h1>
+    <p>請保存這個頁面的網址，付款完成後可在這裡看到兌換碼</p>
+  </header>
+
+  <main class="narrow">
+    <div id="error" class="status error" hidden></div>
+
+    <section id="order" class="card" hidden>
+      <dl class="kv">
+        <dt>訂單編號</dt><dd id="trade-no"></dd>
+        <dt>方案</dt><dd id="package"></dd>
+        <dt>金額</dt><dd id="amount"></dd>
+        <dt>付款方式</dt><dd id="payment"></dd>
+        <dt>狀態</dt><dd><span id="status-badge" class="badge"></span></dd>
+      </dl>
+
+      <div id="pay-info" class="pay-info" hidden></div>
+
+      <div id="waiting" class="waiting" hidden>
+        <span class="spinner"></span>
+        <span>等待付款中，付款完成後此頁會自動更新（ATM／超商入帳可能需要幾分鐘）</span>
+      </div>
+
+      <div id="paid" class="paid" hidden>
+        <p class="muted">您的兌換碼</p>
+        <div class="code-box">
+          <code id="code"></code>
+          <button id="copy-btn" class="btn secondary" type="button">複製</button>
+        </div>
+        <p class="muted">剩餘 <strong id="credits-left"></strong> 點・<a href="/">去轉換簡譜</a></p>
+      </div>
+
+      <div id="dev" class="dev-box" hidden>
+        <p><strong>測試模式</strong>：本機收不到綠界的付款通知，可以用下面的按鈕模擬付款成功。</p>
+        <button id="simulate-btn" class="btn secondary" type="button">模擬付款成功</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="order.js"></script>
+</body>
+</html>
